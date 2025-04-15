@@ -1,21 +1,43 @@
-import React from 'react'
-export default function Navbar({ darkMode, setDarkMode }) {
-    return (
-      <nav className="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm dark:bg-gray-800/90 z-50 py-2">
-        <div className="flex justify-between items-center px-4 md:px-6 max-w-7xl mx-auto">
-          <a href="#" className="text-lg font-semibold dark:text-white">Touseef's Portfolio</a>
-          <div className="flex gap-4 items-center">
-            <a href="#about" className="text-sm text-gray-600 hover:text-indigo-600 dark:text-gray-300">About</a>
-            <a href="#skills" className="text-sm text-gray-600 hover:text-indigo-600 dark:text-gray-300">Skills</a>
-            <a href="#projects" className="text-sm text-gray-600 hover:text-indigo-600 dark:text-gray-300">Projects</a>
-            <button 
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-1.5 rounded-lg bg-gray-100 dark:bg-gray-700 text-sm"
-            >
-              {darkMode ? '🌞' : '🌙'}
-            </button>
-          </div>
-        </div>
-      </nav>
-    )
-  }
+// Navbar.jsx
+import React, { useState } from 'react';
+import { FaBars, FaTimes, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { Link } from 'react-scroll';
+
+const Navbar = () => {
+  const [navOpen, setNavOpen] = useState(false);
+  const toggleNav = () => setNavOpen(!navOpen);
+
+  return (
+    <div className="fixed w-full h-20 flex justify-between items-center px-4 bg-slate-900 text-gray-300">
+      <h1 className="font-thin text-2xl italic">MyPortfolio</h1>
+      {/* Desktop Menu */}
+      <ul className="hidden md:flex gap-x-8">
+        {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
+          <li key={section}>
+            <Link to={section} smooth duration={500}>
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      {/* Mobile Hamburger */}
+      <div onClick={toggleNav} className="md:hidden z-10 cursor-pointer">
+        {navOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+      </div>
+      {/* Mobile Menu */}
+      {navOpen && (
+        <ul className="absolute top-0 left-0 w-full h-screen bg-slate-900 flex flex-col justify-center items-center">
+          {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
+            <li key={section} className="py-6 text-4xl">
+              <Link onClick={toggleNav} to={section} smooth duration={500}>
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+export default Navbar;
