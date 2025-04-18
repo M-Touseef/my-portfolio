@@ -21,13 +21,15 @@ const Navbar = () => {
   }, [darkMode]);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all ${darkMode ? "bg-gray-900" : "bg-white shadow-md"}`}>
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${darkMode ? "bg-gray-900" : "bg-gray-50"} shadow-lg`}>
+      <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold text-gray-800 dark:text-black">Touseef.dev</div>
+        <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 transition-colors">
+          Touseef.dev
+        </div>
 
         {/* Centered Links */}
-        <div className="flex-grow flex justify-center space-x-8 items-center">
+        <div className="flex-grow flex justify-center space-x-8 items-center max-md:hidden">
           {links.map((link) => (
             <Link
               key={link.name}
@@ -35,28 +37,37 @@ const Navbar = () => {
               smooth={true}
               duration={500}
               offset={-70}
-              className={`text-black dark:text-gray-200 hover:text-indigo-500 relative group cursor-pointer font-medium transition`}
+              className={`text-gray-800 dark:text-gray-100 hover:text-indigo-600 dark:hover:text-indigo-400 relative group cursor-pointer font-medium transition-all duration-300`}
+              activeClass="text-indigo-600 dark:text-indigo-400"
             >
               {link.name}
-              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-indigo-500 transition-all group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-indigo-600 dark:bg-indigo-400 transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
         </div>
 
         {/* Theme Toggle */}
-        <div className="cursor-pointer text-black dark:text-white text-2xl md:hidden" onClick={toggleTheme}>
-          {darkMode ? <HiSun /> : <HiMoon />}
-        </div>
+        <div className="flex items-center gap-6">
+          <div 
+            className="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 text-2xl transition-colors"
+            onClick={toggleTheme}
+          >
+            {darkMode ? <HiSun /> : <HiMoon />}
+          </div>
 
-        {/* Mobile Toggle */}
-        <div className="md:hidden text-3xl text-black dark:text-white" onClick={toggleNav}>
-          {navOpen ? <HiOutlineX /> : <HiOutlineMenu />}
+          {/* Mobile Toggle */}
+          <div 
+            className="md:hidden text-3xl text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            onClick={toggleNav}
+          >
+            {navOpen ? <HiOutlineX /> : <HiOutlineMenu />}
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {navOpen && (
-        <div className={`md:hidden bg-white dark:bg-gray-800 backdrop-blur-xl px-6 pb-6 pt-4 shadow-lg transition-all`}>
+        <div className={`md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm px-6 pb-4 transition-all`}>
           {links.map((link) => (
             <Link
               key={link.name}
@@ -65,7 +76,8 @@ const Navbar = () => {
               duration={500}
               offset={-70}
               onClick={toggleNav}
-              className="block text-lg text-black dark:text-gray-200 hover:text-indigo-500 py-2 border-b border-gray-200 dark:border-gray-700"
+              className="block text-lg text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 py-3 transition-colors"
+              activeClass="text-indigo-600 dark:text-indigo-400"
             >
               {link.name}
             </Link>
