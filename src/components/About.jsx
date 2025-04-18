@@ -1,9 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaServer, FaShieldAlt, FaCodeBranch, FaDatabase } from "react-icons/fa";
-import Headshot from "../images/headshot.jpg"; // Add your headshot image
+import { FaServer, FaShieldAlt, FaGraduationCap, FaBriefcase } from "react-icons/fa";
+import Headshot from "../images/Headshot.jpeg"; // Add your headshot image
 
 const About = () => {
+  const timelineItems = [
+    {
+      title: "Education",
+      content: "B.S. Software Engineering\nUniversity of Central Punjab • 2020-2024\nGPA: 3.8/4.0",
+      icon: <FaGraduationCap />,
+      delay: 0.2
+    },
+    {
+      title: "Current Focus",
+      content: "Developing blockchain-based fraud detection system for FYP\nCompleting IBM Cybersecurity Professional Certificate\nContributing to open-source backend projects",
+      icon: <FaBriefcase />,
+      delay: 0.4
+    }
+  ];
+
   return (
     <section
       id="about"
@@ -85,33 +100,74 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Timeline Section */}
+            {/* Animated Timeline Section */}
             <motion.div
-              className="space-y-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              className="relative"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                visible: { transition: { staggerChildren: 0.2 } }
+              }}
             >
-              <div className="border-l-2 border-gray-200 dark:border-gray-700 pl-8 space-y-8">
-                <div className="relative">
-                  <div className="absolute w-4 h-4 bg-indigo-600 rounded-full -left-[25px] top-1" />
-                  <h4 className="text-xl font-semibold mb-2">Education</h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    B.S. Software Engineering<br />
-                    University of Central Punjab • 2020-2024<br />
-                    GPA: 3.8/4.0
-                  </p>
-                </div>
+              <div className="relative pl-8">
+                {/* Vertical Line */}
+                <motion.div
+                  className="absolute left-0 top-0 w-0.5 h-full bg-gray-200 dark:bg-gray-700 origin-top"
+                  initial={{ scaleY: 0 }}
+                  animate={{ scaleY: 1 }}
+                  transition={{ duration: 1.2, ease: [0.34, 1.56, 0.64, 1] }}
+                />
 
-                <div className="relative">
-                  <div className="absolute w-4 h-4 bg-indigo-600 rounded-full -left-[25px] top-1" />
-                  <h4 className="text-xl font-semibold mb-2">Current Focus</h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Developing blockchain-based fraud detection system for FYP<br />
-                    Completing IBM Cybersecurity Professional Certificate<br />
-                    Contributing to open-source backend projects
-                  </p>
-                </div>
+                {timelineItems.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="relative mb-12 last:mb-0"
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0 }
+                    }}
+                    transition={{ delay: item.delay, duration: 0.6 }}
+                  >
+                    {/* Timeline Circle */}
+                    <motion.div
+                      className="absolute left-0 top-1 -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                    />
+
+                    {/* Animated Connector */}
+                    {index > 0 && (
+                      <motion.div
+                        className="absolute left-0 top-0 -translate-x-1/2 w-0.5 h-[40px] bg-indigo-600"
+                        initial={{ scaleY: 0 }}
+                        animate={{ scaleY: 1 }}
+                        transition={{ delay: item.delay - 0.2, duration: 0.4 }}
+                      />
+                    )}
+
+                    {/* Content */}
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3">
+                        <span className="text-indigo-600 dark:text-indigo-400 text-xl">
+                          {item.icon}
+                        </span>
+                        <h4 className="text-xl font-semibold dark:text-white">
+                          {item.title}
+                        </h4>
+                      </div>
+                      <motion.p
+                        className="text-gray-600 dark:text-gray-300 whitespace-pre-line ml-9"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: item.delay + 0.2 }}
+                      >
+                        {item.content}
+                      </motion.p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
