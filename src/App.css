@@ -1,33 +1,28 @@
-/* Background grid pattern */
-.bg-grid-pattern {
-    background-image: 
-      linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
-  }
-  
-  /* Typewriter effect */
-  .typewriter {
-    display: inline-block;
-    overflow: hidden;
-    border-right: 2px solid rgba(255,255,255,.75);
-    white-space: nowrap;
-    animation: 
-      typing 3.5s steps(40, end),
-      blink-caret .75s step-end infinite;
-  }
-  
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-  
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: rgba(255,255,255,.75); }
-  }
-  
-  /* Floating animation */
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-40px) scale(0.9); opacity: 0.4; }
+  100% { transform: translateY(0) scale(1); opacity: 0.8; }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.typewriter {
+  border-right: 2px solid rgba(255,255,255,.75);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgba(255,255,255,.75); }
+}
