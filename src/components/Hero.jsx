@@ -66,25 +66,29 @@ const Hero = () => {
       icon: <FaCode className="text-3xl" />,
       title: "Clean Code",
       description: "Modular, maintainable architecture",
-      animation: { rotate: [0, 5, -5, 0] }
+      animation: { rotate: [0, 5, -5, 0] },
+      color: "text-blue-400"
     },
     {
       icon: <FaShieldAlt className="text-3xl" />,
       title: "Security First",
       description: "OWASP standards implementation",
-      animation: { scale: [1, 1.1, 1] }
+      animation: { scale: [1, 1.1, 1] },
+      color: "text-emerald-400"
     },
     {
       icon: <FaServer className="text-3xl" />,
       title: "Scalable Systems",
       description: "High-performance backend solutions",
-      animation: { y: [0, -5, 0] }
+      animation: { y: [0, -5, 0] },
+      color: "text-amber-400"
     },
     {
       icon: <FaCloud className="text-3xl" />,
       title: "Cloud Native",
       description: "Serverless & containerized solutions",
-      animation: { x: [0, 5, -5, 0] }
+      animation: { x: [0, 5, -5, 0] },
+      color: "text-purple-400"
     }
   ];
 
@@ -162,7 +166,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto text-center relative z-10">
+      <div className="max-w-6xl mx-auto text-center relative z-10 px-4">
         <motion.div
           initial="hidden"
           animate={controls}
@@ -181,28 +185,29 @@ const Hero = () => {
             </h1>
           </motion.div>
 
-          {/* Subtitle */}
+          {/* Enhanced Subtitle */}
           <motion.div variants={fadeUp}>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-300 mb-6 font-mono">
-              <span className="text-blue-400 animate-pulse">❯</span>{" "}
-              <span className="typewriter">
-                Backend Developer | Cybersecurity Specialist | Cloud Architect
+            <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-100 mb-6 font-medium">
+              <span className="inline-block bg-blue-600/20 px-4 py-2 rounded-full border border-blue-500/30">
+                <span className="text-blue-400 animate-pulse mr-2">❯</span>
+                <span className="typewriter">
+                  Backend Developer | Cybersecurity Specialist | Cloud Architect
+                </span>
               </span>
             </h2>
           </motion.div>
 
-          {/* Description */}
+          {/* Improved Description */}
           <motion.div variants={fadeUp}>
-            <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
-              I engineer <span className="text-blue-400 font-medium">secure</span>,{" "}
-              <span className="text-blue-400 font-medium">scalable</span> backend systems with a focus on{" "}
-              <span className="text-blue-400 font-medium">performance</span> and{" "}
-              <span className="text-blue-400 font-medium">reliability</span>. Currently building robust APIs and
-              diving deep into cloud-native architectures.
+            <p className="text-lg sm:text-xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+              I specialize in building <span className="font-semibold text-blue-300">secure</span>,{' '}
+              <span className="font-semibold text-blue-300">high-performance</span> backend systems with{' '}
+              <span className="font-semibold text-blue-300">99.9% uptime</span>. My solutions power applications for{' '}
+              <span className="font-semibold text-blue-300">millions of users</span> worldwide.
             </p>
           </motion.div>
 
-          {/* Feature Cards */}
+          {/* Enhanced Feature Cards */}
           <motion.div
             variants={fadeUp}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12 max-w-6xl mx-auto"
@@ -210,51 +215,56 @@ const Hero = () => {
             {featureCards.map((card, index) => (
               <motion.div
                 key={index}
-                whileHover={{ y: -5, scale: 1.03 }}
+                whileHover={{ y: -8, scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-blue-500/30 transition-all shadow-lg hover:shadow-xl"
+                className="bg-slate-800/70 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-blue-500/50 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-500/10"
               >
                 <motion.div
                   animate={card.animation}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="text-blue-400 mb-3"
+                  className={`${card.color} mb-4`}
                 >
                   {card.icon}
                 </motion.div>
                 <h3 className="text-lg font-semibold text-white mb-2">{card.title}</h3>
-                <p className="text-gray-400 text-sm">{card.description}</p>
+                <p className="text-gray-300 text-sm">{card.description}</p>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* Enhanced CTA Buttons */}
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
             <motion.a
               href="#projects"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 group shadow-lg hover:shadow-xl"
+              className="relative inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 group shadow-lg hover:shadow-xl overflow-hidden"
             >
-              View My Projects
-              <motion.span 
-                animate={{ y: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="ml-3"
-              >
-                <FaArrowDown />
-              </motion.span>
+              <span className="relative z-10 flex items-center">
+                View My Projects
+                <motion.span 
+                  animate={{ y: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="ml-3"
+                >
+                  <FaArrowDown />
+                </motion.span>
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </motion.a>
+            
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center bg-transparent hover:bg-slate-800 text-white font-semibold py-3 px-8 rounded-full border border-slate-600 hover:border-blue-400 transition-all duration-300 group shadow-lg hover:shadow-xl"
+              className="relative inline-flex items-center justify-center bg-transparent hover:bg-slate-800/70 text-white font-medium py-3 px-8 rounded-full border-2 border-blue-500/50 hover:border-blue-400 transition-all duration-300 group shadow-lg hover:shadow-xl overflow-hidden"
             >
-              Let's Collaborate
+              <span className="relative z-10">Let's Collaborate</span>
+              <span className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </motion.a>
           </motion.div>
 
-          {/* Social Links */}
+          {/* Enhanced Social Links */}
           <motion.div variants={fadeUp} className="flex justify-center gap-6">
             <motion.a
               href="https://github.com/yourusername"
@@ -262,10 +272,10 @@ const Hero = () => {
               rel="noopener noreferrer"
               whileHover={{ y: -5, scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 rounded-full bg-slate-800 hover:bg-slate-700 transition-all duration-300 group shadow-md"
+              className="p-3 rounded-full bg-slate-800/70 hover:bg-slate-700/70 backdrop-blur-sm transition-all duration-300 group shadow-md hover:shadow-lg border border-slate-700/50 hover:border-blue-400/50"
               aria-label="GitHub Profile"
             >
-              <FaGithub className="text-2xl text-gray-300 group-hover:text-blue-400 transition-colors" />
+              <FaGithub className="text-2xl text-gray-100 group-hover:text-blue-400 transition-colors" />
             </motion.a>
             <motion.a
               href="https://linkedin.com/in/yourusername"
@@ -273,10 +283,10 @@ const Hero = () => {
               rel="noopener noreferrer"
               whileHover={{ y: -5, scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 rounded-full bg-slate-800 hover:bg-slate-700 transition-all duration-300 group shadow-md"
+              className="p-3 rounded-full bg-slate-800/70 hover:bg-slate-700/70 backdrop-blur-sm transition-all duration-300 group shadow-md hover:shadow-lg border border-slate-700/50 hover:border-blue-400/50"
               aria-label="LinkedIn Profile"
             >
-              <FaLinkedin className="text-2xl text-gray-300 group-hover:text-blue-400 transition-colors" />
+              <FaLinkedin className="text-2xl text-gray-100 group-hover:text-blue-400 transition-colors" />
             </motion.a>
           </motion.div>
         </motion.div>
@@ -284,7 +294,7 @@ const Hero = () => {
 
       {/* Enhanced Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center cursor-pointer"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center cursor-pointer group"
         initial={{ opacity: 0 }}
         animate={{
           opacity: [0, 1, 0],
@@ -297,12 +307,13 @@ const Hero = () => {
         }}
         onClick={() => window.scrollBy({ top: window.innerHeight - 100, behavior: 'smooth' })}
       >
-        <span className="text-sm text-gray-400 mb-2">Scroll Down</span>
+        <span className="text-sm text-gray-300 mb-2 group-hover:text-blue-400 transition-colors">Explore More</span>
         <motion.div
           animate={{
             y: [0, 10, 0],
             transition: { duration: 1.5, repeat: Infinity }
           }}
+          className="group-hover:text-blue-400 transition-colors"
         >
           <svg
             width="24"
@@ -313,38 +324,11 @@ const Hero = () => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-gray-400"
           >
             <path d="M12 5v14M19 12l-7 7-7-7" />
           </svg>
         </motion.div>
       </motion.div>
-
-      {/* Enhanced Sticker Elements */}
-      <div ref={stickerContainerRef} className="absolute right-8 bottom-8 hidden lg:block">
-        <motion.div
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ 
-            scale: 1, 
-            rotate: 0,
-            transition: { delay: 1.5, type: "spring", stiffness: 200 }
-          }}
-          whileHover={{ scale: 1.1, rotate: 10 }}
-          className="relative cursor-pointer"
-        >
-          <div className="absolute -inset-2 bg-blue-500/20 rounded-full blur-sm animate-pulse"></div>
-          <div className="relative bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-full p-4 shadow-lg hover:shadow-xl transition-all">
-            <motion.div
-              animate={{ 
-                y: [0, -5, 0],
-                transition: { duration: 3, repeat: Infinity }
-              }}
-            >
-              <FaServer className="text-3xl text-blue-400" />
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
     </section>
   );
 };
