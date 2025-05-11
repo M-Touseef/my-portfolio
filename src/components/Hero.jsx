@@ -23,8 +23,10 @@ import {
   SiPostgresql
 } from "react-icons/si";
 import { GiArtificialIntelligence } from "react-icons/gi";
+import { useTheme } from "../context/ThemeContext";
 
 const Hero = () => {
+  const { isDark } = useTheme();
   const [isMobile, setIsMobile] = useState(false);
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -57,17 +59,17 @@ const Hero = () => {
   };
 
   const floatingTechIcons = [
-    { icon: <SiTypescript className="text-blue-500" />, size: "w-8 h-8 sm:w-10 sm:h-10", delay: 0, rotate: true },
-    { icon: <SiNodedotjs className="text-green-500" />, size: "w-10 h-10 sm:w-12 sm:h-12", delay: 0.3, rotate: false },
-    { icon: <SiMongodb className="text-green-400" />, size: "w-9 h-9 sm:w-11 sm:h-11", delay: 0.6, rotate: true },
-    { icon: <SiDocker className="text-blue-400" />, size: "w-12 h-12 sm:w-14 sm:h-14", delay: 0.9, rotate: false },
-    { icon: <FaAws className="text-amber-500" />, size: "w-10 h-10 sm:w-12 sm:h-12", delay: 1.2, rotate: true },
+    { icon: <SiTypescript className="text-blue-500 dark:text-blue-400" />, size: "w-8 h-8 sm:w-10 sm:h-10", delay: 0, rotate: true },
+    { icon: <SiNodedotjs className="text-green-500 dark:text-green-400" />, size: "w-10 h-10 sm:w-12 sm:h-12", delay: 0.3, rotate: false },
+    { icon: <SiMongodb className="text-green-400 dark:text-green-300" />, size: "w-9 h-9 sm:w-11 sm:h-11", delay: 0.6, rotate: true },
+    { icon: <SiDocker className="text-blue-400 dark:text-blue-300" />, size: "w-12 h-12 sm:w-14 sm:h-14", delay: 0.9, rotate: false },
+    { icon: <FaAws className="text-amber-500 dark:text-amber-400" />, size: "w-10 h-10 sm:w-12 sm:h-12", delay: 1.2, rotate: true },
     ...(isMobile ? [] : [
-      { icon: <SiKubernetes className="text-blue-400" />, size: "w-12 h-12", delay: 1.5, rotate: false },
-      { icon: <SiPython className="text-blue-300" />, size: "w-10 h-10", delay: 1.8, rotate: true },
-      { icon: <SiGraphql className="text-pink-500" />, size: "w-12 h-12", delay: 2.1, rotate: false },
-      { icon: <SiPostgresql className="text-blue-300" />, size: "w-12 h-12", delay: 2.4, rotate: true },
-      { icon: <GiArtificialIntelligence className="text-purple-400" />, size: "w-14 h-14", delay: 2.7, rotate: false }
+      { icon: <SiKubernetes className="text-blue-400 dark:text-blue-300" />, size: "w-12 h-12", delay: 1.5, rotate: false },
+      { icon: <SiPython className="text-blue-300 dark:text-blue-200" />, size: "w-10 h-10", delay: 1.8, rotate: true },
+      { icon: <SiGraphql className="text-pink-500 dark:text-pink-400" />, size: "w-12 h-12", delay: 2.1, rotate: false },
+      { icon: <SiPostgresql className="text-blue-300 dark:text-blue-200" />, size: "w-12 h-12", delay: 2.4, rotate: true },
+      { icon: <GiArtificialIntelligence className="text-purple-400 dark:text-purple-300" />, size: "w-14 h-14", delay: 2.7, rotate: false }
     ])
   ];
 
@@ -77,28 +79,28 @@ const Hero = () => {
       title: "Clean Code",
       description: "Modular, maintainable architecture",
       animation: { rotate: [0, 5, -5, 0] },
-      color: "text-blue-400"
+      color: "text-blue-400 dark:text-blue-300"
     },
     {
       icon: <FaShieldAlt />,
       title: "Security First",
       description: "OWASP standards implementation",
       animation: { scale: [1, 1.1, 1] },
-      color: "text-emerald-400"
+      color: "text-emerald-400 dark:text-emerald-300"
     },
     {
       icon: <FaServer />,
       title: "Scalable Systems",
       description: "High-performance backend solutions",
       animation: { y: [0, -5, 0] },
-      color: "text-amber-400"
+      color: "text-amber-400 dark:text-amber-300"
     },
     {
       icon: <FaCloud />,
       title: "Cloud Native",
       description: "Serverless & containerized solutions",
       animation: { x: [0, 5, -5, 0] },
-      color: "text-purple-400"
+      color: "text-purple-400 dark:text-purple-300"
     }
   ];
 
@@ -106,7 +108,10 @@ const Hero = () => {
     <section
       id="home"
       ref={ref}
-      className="relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4 sm:px-6 overflow-x-hidden"
+      className={`relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-x-hidden
+        bg-gradient-to-br from-slate-100 via-white to-slate-100
+        dark:from-slate-900 dark:via-slate-800 dark:to-slate-900
+        transition-colors duration-300`}
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -140,14 +145,14 @@ const Hero = () => {
           </motion.div>
         ))}
 
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px]" />
+        <div className="absolute inset-0 opacity-10 dark:opacity-20">
+          <div className="absolute inset-0 bg-grid-pattern dark:bg-grid-pattern-dark bg-[length:40px_40px]" />
         </div>
 
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-blue-400 rounded-full"
+            className="absolute w-1 h-1 bg-blue-400 dark:bg-blue-300 rounded-full"
             initial={{
               x: Math.random() * 100,
               y: Math.random() * 100,
@@ -185,17 +190,17 @@ const Hero = () => {
         >
           <motion.div variants={fadeUp}>
             <h1 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">
                 Hi, I'm Muhammad Touseef
               </span>
             </h1>
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <h2 className="text-sm sm:text-xl lg:text-3xl text-gray-100 mb-6 font-medium">
-              <span className="inline-block bg-blue-600/20 px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-blue-500/30">
-                <span className="text-blue-400 animate-pulse mr-2">❯</span>
-                <span className="typewriter">
+            <h2 className="text-sm sm:text-xl lg:text-3xl text-gray-800 dark:text-gray-200 mb-6 font-medium">
+              <span className="inline-block bg-blue-100/50 dark:bg-blue-600/20 px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-blue-200 dark:border-blue-500/30">
+                <span className="text-blue-600 dark:text-blue-400 animate-pulse mr-2">❯</span>
+                <span className="typewriter text-gray-800 dark:text-gray-200">
                   Backend Developer | Cybersecurity Specialist | Cloud Architect
                 </span>
               </span>
@@ -203,11 +208,11 @@ const Hero = () => {
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-              I specialize in building <span className="font-semibold text-blue-300">secure</span>,{' '}
-              <span className="font-semibold text-blue-300">high-performance</span> backend systems with{' '}
-              <span className="font-semibold text-blue-300">99.9% uptime</span>. My solutions power applications for{' '}
-              <span className="font-semibold text-blue-300">millions of users</span> worldwide.
+            <p className="text-base sm:text-lg lg:text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+              I specialize in building <span className="font-semibold text-blue-600 dark:text-blue-400">secure</span>,{' '}
+              <span className="font-semibold text-blue-600 dark:text-blue-400">high-performance</span> backend systems with{' '}
+              <span className="font-semibold text-blue-600 dark:text-blue-400">99.9% uptime</span>. My solutions power applications for{' '}
+              <span className="font-semibold text-blue-600 dark:text-blue-400">millions of users</span> worldwide.
             </p>
           </motion.div>
 
@@ -220,7 +225,7 @@ const Hero = () => {
                 key={index}
                 whileHover={{ y: -8, scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="bg-slate-800/70 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-700/50 hover:border-blue-500/50 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-500/10"
+                className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 dark:border-slate-700/50 hover:border-blue-500/50 transition-all shadow-lg hover:shadow-xl hover:shadow-blue-500/10"
               >
                 <motion.div
                   animate={card.animation}
@@ -229,8 +234,8 @@ const Hero = () => {
                 >
                   {React.cloneElement(card.icon, { className: "text-2xl sm:text-3xl" })}
                 </motion.div>
-                <h3 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2">{card.title}</h3>
-                <p className="text-gray-300 text-xs sm:text-sm">{card.description}</p>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white mb-1 sm:mb-2">{card.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm">{card.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -240,7 +245,7 @@ const Hero = () => {
               href="#projects"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-medium py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 group shadow-lg hover:shadow-xl overflow-hidden w-full sm:w-auto"
+              className="relative inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 dark:from-blue-500 dark:to-blue-600 dark:hover:from-blue-600 dark:hover:to-blue-500 text-white font-medium py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 group shadow-lg hover:shadow-xl overflow-hidden w-full sm:w-auto"
             >
               <span className="relative z-10 flex items-center">
                 View My Projects
@@ -252,17 +257,15 @@ const Hero = () => {
                   <FaArrowDown />
                 </motion.span>
               </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </motion.a>
             
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative inline-flex items-center justify-center bg-transparent hover:bg-slate-800/70 text-white font-medium py-2 sm:py-3 px-6 sm:px-8 rounded-full border-2 border-blue-500/50 hover:border-blue-400 transition-all duration-300 group shadow-lg hover:shadow-xl overflow-hidden w-full sm:w-auto"
+              className="relative inline-flex items-center justify-center bg-transparent hover:bg-gray-100/50 dark:hover:bg-slate-800/70 text-gray-800 dark:text-white font-medium py-2 sm:py-3 px-6 sm:px-8 rounded-full border-2 border-blue-500/50 hover:border-blue-400 transition-all duration-300 group shadow-lg hover:shadow-xl overflow-hidden w-full sm:w-auto"
             >
               <span className="relative z-10">Let's Collaborate</span>
-              <span className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </motion.a>
           </motion.div>
 
@@ -273,10 +276,10 @@ const Hero = () => {
               rel="noopener noreferrer"
               whileHover={{ y: -5, scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 rounded-full bg-slate-800/70 hover:bg-slate-700/70 backdrop-blur-sm transition-all duration-300 group shadow-md hover:shadow-lg border border-slate-700/50 hover:border-blue-400/50"
+              className="p-3 rounded-full bg-white/70 dark:bg-slate-800/70 hover:bg-gray-100/70 dark:hover:bg-slate-700/70 backdrop-blur-sm transition-all duration-300 group shadow-md hover:shadow-lg border border-gray-200/50 dark:border-slate-700/50 hover:border-blue-400/50"
               aria-label="GitHub Profile"
             >
-              <FaGithub className="text-2xl text-gray-100 group-hover:text-blue-400 transition-colors" />
+              <FaGithub className="text-2xl text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
             </motion.a>
             <motion.a
               href="https://linkedin.com/in/yourusername"
@@ -284,51 +287,16 @@ const Hero = () => {
               rel="noopener noreferrer"
               whileHover={{ y: -5, scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 rounded-full bg-slate-800/70 hover:bg-slate-700/70 backdrop-blur-sm transition-all duration-300 group shadow-md hover:shadow-lg border border-slate-700/50 hover:border-blue-400/50"
+              className="p-3 rounded-full bg-white/70 dark:bg-slate-800/70 hover:bg-gray-100/70 dark:hover:bg-slate-700/70 backdrop-blur-sm transition-all duration-300 group shadow-md hover:shadow-lg border border-gray-200/50 dark:border-slate-700/50 hover:border-blue-400/50"
               aria-label="LinkedIn Profile"
             >
-              <FaLinkedin className="text-2xl text-gray-100 group-hover:text-blue-400 transition-colors" />
+              <FaLinkedin className="text-2xl text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
             </motion.a>
           </motion.div>
         </motion.div>
       </div>
 
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center cursor-pointer group"
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: [0, 1, 0],
-          y: [0, 10, 20]
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          repeatType: "loop"
-        }}
-        onClick={() => window.scrollBy({ top: window.innerHeight - 100, behavior: 'smooth' })}
-      >
-        <span className="text-sm text-gray-300 mb-2 group-hover:text-blue-400 transition-colors">Explore More</span>
-        <motion.div
-          animate={{
-            y: [0, 10, 0],
-            transition: { duration: 1.5, repeat: Infinity }
-          }}
-          className="group-hover:text-blue-400 transition-colors"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 5v14M19 12l-7 7-7-7" />
-          </svg>
-        </motion.div>
-      </motion.div>
+      {/* Scroll indicator removed as per request */}
     </section>
   );
 };
