@@ -11,12 +11,12 @@ import { BsTerminal, BsShieldLock } from "react-icons/bs";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCoverflow } from 'swiper/modules';
-
-// Import Swiper styles
+import { useTheme } from "../context/ThemeContext";
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 
 const Skills = () => {
+  const { isDark } = useTheme();
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
@@ -28,24 +28,24 @@ const Skills = () => {
   }, [controls, isInView]);
 
   const skills = [
-    { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" size={28} /> },
-    { name: "TypeScript", icon: <SiTypescript className="text-blue-600" size={28} /> },
-    { name: "React.js", icon: <FaReact className="text-blue-500" size={28} /> },
-    { name: "Node.js", icon: <FaNodeJs className="text-green-600" size={28} /> },
+    { name: "JavaScript", icon: <SiJavascript className="text-yellow-400 dark:text-yellow-500" size={28} /> },
+    { name: "TypeScript", icon: <SiTypescript className="text-blue-600 dark:text-blue-400" size={28} /> },
+    { name: "React.js", icon: <FaReact className="text-blue-500 dark:text-blue-400" size={28} /> },
+    { name: "Node.js", icon: <FaNodeJs className="text-green-600 dark:text-green-500" size={28} /> },
     { name: "Express.js", icon: <SiExpress className="text-gray-800 dark:text-gray-300" size={28} /> },
-    { name: "MongoDB", icon: <SiMongodb className="text-green-500" size={28} /> },
-    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-blue-400" size={28} /> },
-    { name: "Firebase", icon: <SiFirebase className="text-yellow-500" size={28} /> },
+    { name: "MongoDB", icon: <SiMongodb className="text-green-500 dark:text-green-400" size={28} /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-blue-400 dark:text-blue-300" size={28} /> },
+    { name: "Firebase", icon: <SiFirebase className="text-yellow-500 dark:text-yellow-400" size={28} /> },
     { name: "Git & GitHub", icon: <FaGithub className="text-gray-800 dark:text-gray-300" size={28} /> },
     { name: "Linux CLI", icon: <FaLinux className="text-gray-800 dark:text-gray-300" size={28} /> },
-    { name: "SQL", icon: <FaDatabase className="text-blue-600" size={28} /> },
-    { name: "Pandas", icon: <SiPandas className="text-blue-800" size={28} /> },
-    { name: "NumPy", icon: <SiNumpy className="text-blue-700" size={28} /> },
-    { name: "Python", icon: <SiPython className="text-blue-600" size={28} /> },
-    { name: "TensorFlow", icon: <SiTensorflow className="text-orange-500" size={28} /> },
-    { name: "Machine Learning", icon: <GiArtificialIntelligence className="text-purple-600" size={28} /> },
-    { name: "Metasploit", icon: <BsTerminal className="text-red-500" size={28} /> },
-    { name: "Cybersecurity", icon: <BsShieldLock className="text-blue-600" size={28} /> },
+    { name: "SQL", icon: <FaDatabase className="text-blue-600 dark:text-blue-400" size={28} /> },
+    { name: "Pandas", icon: <SiPandas className="text-blue-800 dark:text-blue-500" size={28} /> },
+    { name: "NumPy", icon: <SiNumpy className="text-blue-700 dark:text-blue-400" size={28} /> },
+    { name: "Python", icon: <SiPython className="text-blue-600 dark:text-blue-400" size={28} /> },
+    { name: "TensorFlow", icon: <SiTensorflow className="text-orange-500 dark:text-orange-400" size={28} /> },
+    { name: "Machine Learning", icon: <GiArtificialIntelligence className="text-purple-600 dark:text-purple-400" size={28} /> },
+    { name: "Metasploit", icon: <BsTerminal className="text-red-500 dark:text-red-400" size={28} /> },
+    { name: "Cybersecurity", icon: <BsShieldLock className="text-blue-600 dark:text-blue-400" size={28} /> },
   ];
 
   const variants = {
@@ -73,8 +73,12 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="w-full bg-gradient-to-b from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-20 px-4 sm:px-6 overflow-hidden transition-colors duration-300"
       ref={ref}
+      className={`w-full py-20 px-4 sm:px-6 overflow-hidden ${
+        isDark 
+          ? 'bg-gradient-to-b from-gray-900 to-gray-800' 
+          : 'bg-gradient-to-b from-gray-50 to-blue-50'
+      } transition-colors duration-300`}
     >
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -87,13 +91,15 @@ const Skills = () => {
             className="text-4xl sm:text-5xl font-bold mb-4 text-gray-800 dark:text-white"
             variants={itemVariants}
           >
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">Skills</span>
+            Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500">Expertise</span>
           </motion.h2>
           <motion.p 
-            className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+            className={`text-lg max-w-2xl mx-auto ${
+              isDark ? 'text-gray-300' : 'text-gray-600'
+            }`}
             variants={itemVariants}
           >
-            Technologies I work with to build exceptional digital experiences
+            Tools and technologies I leverage to build robust, scalable solutions
           </motion.p>
         </motion.div>
 
@@ -126,12 +132,18 @@ const Skills = () => {
             {skills.map((skill, index) => (
               <SwiperSlide key={index} className="!w-[200px] !h-[200px]">
                 <motion.div
-                  className="w-full h-full bg-white dark:bg-gray-800 rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                  className={`w-full h-full rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 border ${
+                    isDark 
+                      ? 'bg-gray-800 border-gray-700 hover:border-blue-400' 
+                      : 'bg-white border-gray-200 hover:border-blue-500'
+                  }`}
                   whileHover={{ y: -10, scale: 1.05 }}
                   variants={itemVariants}
                 >
                   <div className="mb-4">{skill.icon}</div>
-                  <p className="text-lg font-semibold text-gray-800 dark:text-gray-200 text-center">
+                  <p className={`text-lg font-semibold text-center ${
+                    isDark ? 'text-gray-200' : 'text-gray-800'
+                  }`}>
                     {skill.name}
                   </p>
                 </motion.div>
@@ -160,12 +172,18 @@ const Skills = () => {
             {skills.map((skill, index) => (
               <SwiperSlide key={index} className="!h-[120px]">
                 <motion.div
-                  className="w-full h-full bg-white dark:bg-gray-800 rounded-xl p-4 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                  className={`w-full h-full rounded-xl p-4 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 border ${
+                    isDark 
+                      ? 'bg-gray-800 border-gray-700 hover:border-blue-400' 
+                      : 'bg-white border-gray-200 hover:border-blue-500'
+                  }`}
                   whileHover={{ y: -5 }}
                   variants={itemVariants}
                 >
                   <div className="mb-2">{skill.icon}</div>
-                  <p className="text-sm font-medium text-gray-800 dark:text-gray-200 text-center">
+                  <p className={`text-sm font-medium text-center ${
+                    isDark ? 'text-gray-200' : 'text-gray-800'
+                  }`}>
                     {skill.name}
                   </p>
                 </motion.div>
@@ -173,6 +191,16 @@ const Skills = () => {
             ))}
           </Swiper>
         </motion.div>
+
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className={`absolute -left-20 -top-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
+            isDark ? 'bg-blue-900' : 'bg-blue-200'
+          }`} />
+          <div className={`absolute -right-20 -bottom-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
+            isDark ? 'bg-purple-900' : 'bg-purple-200'
+          }`} />
+        </div>
       </div>
     </section>
   );
