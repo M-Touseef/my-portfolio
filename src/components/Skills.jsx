@@ -88,10 +88,13 @@ const Skills = () => {
           variants={variants}
         >
           <motion.h2 
-            className="text-4xl sm:text-5xl font-bold mb-4 text-gray-800 dark:text-white"
+            className="text-4xl sm:text-5xl font-bold mb-4"
             variants={itemVariants}
           >
-            Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500">Expertise</span>
+            <span className={isDark ? "text-white" : "text-gray-800"}>Technical </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500">
+              Expertise
+            </span>
           </motion.h2>
           <motion.p 
             className={`text-lg max-w-2xl mx-auto ${
