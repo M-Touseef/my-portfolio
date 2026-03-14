@@ -24,7 +24,7 @@ const Navbar = React.memo(() => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     
     // Throttle scroll events for better performance
@@ -81,11 +81,15 @@ const Navbar = React.memo(() => {
       variants={navVariants}
       initial="initial"
       animate="animate"
-      className={`fixed w-full z-50 backdrop-blur-md ${
-        isDark 
-          ? 'bg-gray-900/80 border-gray-700' 
-          : 'bg-white/80 border-gray-200'
-      } border-b ${scrolled ? 'shadow-lg' : 'shadow-sm'}`}
+      className={`fixed w-full z-50 top-0 transition-all duration-300 ${
+        scrolled 
+          ? (isDark 
+              ? 'bg-gray-900/80 backdrop-blur-md border-gray-700' 
+              : 'bg-white/80 backdrop-blur-md border-gray-200')
+          : (isDark 
+              ? 'bg-transparent border-transparent' 
+              : 'bg-transparent border-transparent')
+      } border-b ${scrolled ? 'shadow-lg' : ''}`}
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
