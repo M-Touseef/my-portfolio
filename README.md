@@ -1,12 +1,52 @@
-# React + Vite
+# Muhammad Touseef
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Full Stack & ML Engineer
 
-Currently, two official plugins are available:
+[![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[**Live Demo**](https://muhammadtouseef.vercel.app)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## About
+
+I'm a Full Stack & ML Engineer with experience in full-stack web development and machine learning. I build scalable applications and intelligent systems that solve real-world problems.
+
+---
+
+## Features
+
+- **Hero Section** — Introduction and key value proposition
+- **About** — Background and expertise overview
+- **Skills** — Technical skills and technologies
+- **Projects** — Showcase of work and contributions
+- **Experience** — Professional background
+- **Contact** — Ways to get in touch
+
+---
+
+## Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/M-Touseef/my-portfolio.git
+
+# Navigate to the project directory
+cd my-portfolio
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+---
+
+## License
+
+MIT License — see the [LICENSE](LICENSE) file for details.

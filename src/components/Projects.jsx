@@ -6,6 +6,16 @@ import { useTheme } from "../context/ThemeContext";
 const professionalProjects = [
   {
     id: 1,
+    title: "Deepfake Detector",
+    description: "A full-stack deepfake detection platform using EfficientNet-B0 + Transformer Encoder trained on FaceForensics++ C23. Achieves 96.76% F1 score with Grad-CAM explainability. Built with React, Node.js, MongoDB, and PyTorch.",
+    tech: ["React", "Node.js", "MongoDB", "PyTorch", "EfficientNet"],
+    github: "https://github.com/M-Touseef/Deep-Fake-Video-Detector",
+    demo: "#",
+    year: 2024,
+    featured: true
+  },
+  {
+    id: 2,
     title: "University Admissions Platform",
     description: "Full-stack application handling 50,000+ annual student applications with automated document processing and real-time analytics dashboard.",
     tech: ["React", "Node.js", "MongoDB", "Express", "Stripe API"],
@@ -15,7 +25,7 @@ const professionalProjects = [
     featured: true
   },
   {
-    id: 2,
+    id: 3,
     title: "Nutrition-Focused E-Commerce",
     description: "AI-powered meal recommendation system with personalized dietary filters and nutrition tracking for health-conscious consumers.",
     tech: ["React", "Node.js", "MongoDB", "JWT Auth"],
@@ -241,7 +251,7 @@ const ProjectCard = ({ project, index, isDark }) => {
               } transition-colors`}
             >
               <FiGithub className="w-5 h-5" />
-              <span className="text-sm font-medium">Code</span>
+              <span className="text-sm font-medium">GitHub</span>
             </a>
             <a
               href={project.demo}
@@ -252,7 +262,7 @@ const ProjectCard = ({ project, index, isDark }) => {
               } text-white transition-colors`}
             >
               <FiExternalLink className="w-5 h-5" />
-              <span className="text-sm font-medium">Demo</span>
+              <span className="text-sm font-medium">Live Demo</span>
             </a>
           </div>
         </div>

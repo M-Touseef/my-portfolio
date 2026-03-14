@@ -191,7 +191,7 @@ const Hero = () => {
           <motion.div variants={fadeUp}>
             <h1 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-bold mb-4">
               <span className="bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">
-                Hi, I'm Muhammad Touseef
+                I build intelligent, full-stack products.
               </span>
             </h1>
           </motion.div>
@@ -201,7 +201,7 @@ const Hero = () => {
               <span className="inline-block bg-blue-100/50 dark:bg-blue-600/20 px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-blue-200 dark:border-blue-500/30">
                 <span className="text-blue-600 dark:text-blue-400 animate-pulse mr-2">❯</span>
                 <span className="typewriter text-gray-800 dark:text-gray-200">
-                  Backend Developer | Cybersecurity Specialist | Cloud Architect
+                  Full Stack Engineer & ML Developer — I specialize in React, Node.js, and PyTorch. Currently focused on AI-powered applications and explainable machine learning.
                 </span>
               </span>
             </h2>
@@ -248,7 +248,7 @@ const Hero = () => {
               className="relative inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 dark:from-blue-500 dark:to-blue-600 dark:hover:from-blue-600 dark:hover:to-blue-500 text-white font-medium py-2 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 group shadow-lg hover:shadow-xl overflow-hidden w-full sm:w-auto"
             >
               <span className="relative z-10 flex items-center">
-                View My Projects
+                View My Work
                 <motion.span 
                   animate={{ y: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
@@ -265,7 +265,7 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
               className="relative inline-flex items-center justify-center bg-transparent hover:bg-gray-100/50 dark:hover:bg-slate-800/70 text-gray-800 dark:text-white font-medium py-2 sm:py-3 px-6 sm:px-8 rounded-full border-2 border-blue-500/50 hover:border-blue-400 transition-all duration-300 group shadow-lg hover:shadow-xl overflow-hidden w-full sm:w-auto"
             >
-              <span className="relative z-10">Let's Collaborate</span>
+              <span className="relative z-10">Get in Touch</span>
             </motion.a>
           </motion.div>
 
