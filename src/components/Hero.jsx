@@ -191,7 +191,7 @@ const Hero = () => {
           <motion.div variants={fadeUp}>
             <h1 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-bold mb-4">
               <span className="bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">
-                I build intelligent, full-stack products.
+                Built a deepfake detector with 96.76% F1 score.
               </span>
             </h1>
           </motion.div>
@@ -209,10 +209,8 @@ const Hero = () => {
 
           <motion.div variants={fadeUp}>
             <p className="text-base sm:text-lg lg:text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              I specialize in building <span className="font-semibold text-blue-600 dark:text-blue-400">secure</span>,{' '}
-              <span className="font-semibold text-blue-600 dark:text-blue-400">high-performance</span> backend systems with{' '}
-              <span className="font-semibold text-blue-600 dark:text-blue-400">99.9% uptime</span>. My solutions power applications for{' '}
-              <span className="font-semibold text-blue-600 dark:text-blue-400">millions of users</span> worldwide.
+              I design <span className="font-semibold text-blue-600 dark:text-blue-400">ML‑powered systems</span> that move from research to production — from frame‑level deepfake detection with{' '}
+              <span className="font-semibold text-blue-600 dark:text-blue-400">96.76% F1</span> on FaceForensics++ C23 to secure, full‑stack apps ready for real users.
             </p>
           </motion.div>
 

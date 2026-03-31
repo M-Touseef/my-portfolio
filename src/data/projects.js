@@ -2,73 +2,54 @@ export const projects = [
   {
     id: 1,
     title: "Deepfake Detector",
-    description: "A full-stack deepfake detection platform using EfficientNet-B0 + Transformer Encoder trained on FaceForensics++ C23. Achieves 96.76% F1 score with Grad-CAM explainability.",
-    techStack: ["React", "Node.js", "MongoDB", "PyTorch", "EfficientNet"],
+    description:
+      "Proof-of-reality deepfake detection platform using EfficientNet-B0 + Transformer Encoder trained on FaceForensics++ C23. Achieved 96.76% F1 score with Grad-CAM explainability, frame-wise verdicts, and production-ready API.",
+    techStack: ["React", "Node.js", "MongoDB", "PyTorch", "EfficientNet", "Transformers"],
     category: "Machine Learning",
     liveUrl: "#",
     githubUrl: "https://github.com/M-Touseef/Deep-Fake-Video-Detector",
-    imageUrl: null
+    imageUrl: "/images/projects/deepfake-detector.png",
+    highlights: [
+      "Processed thousands of video frames with batched GPU inference and asynchronous workers",
+      "Delivered 96.76% F1 score on FaceForensics++ C23 split with robust evaluation pipeline",
+      "Integrated Grad-CAM heatmaps and segment-level verdicts for explainable decisions",
+      "Exposed REST API endpoints for uploading videos and retrieving authenticity reports"
+    ]
   },
   {
     id: 2,
     title: "University Admissions Platform",
-    description: "Full-stack application handling 50,000+ annual student applications with automated document processing and real-time analytics dashboard.",
+    description:
+      "End-to-end admissions system that digitizes applicant intake, document verification, and review workflows for universities handling 50,000+ annual applications.",
     techStack: ["React", "Node.js", "MongoDB", "Express", "Stripe API"],
     category: "Full Stack",
     liveUrl: "#",
-    githubUrl: "#",
-    imageUrl: null
+    githubUrl: "https://github.com/M-Touseef/AdmissionPlatform",
+    imageUrl: "/images/projects/admissions-platform.png",
+    highlights: [
+      "Designed multi-step application flows with autosave and validation for thousands of concurrent users",
+      "Implemented role-based dashboards for applicants, reviewers, and admins with real-time status tracking",
+      "Integrated Stripe for secure fee payments and automated receipt generation",
+      "Optimized MongoDB queries and indexes to keep dashboard load times under 200 ms"
+    ]
   },
   {
     id: 3,
-    title: "Nutrition-Focused E-Commerce",
-    description: "AI-powered meal recommendation system with personalized dietary filters and nutrition tracking for health-conscious consumers.",
+    title: "Nutrition-Focused E‑Commerce",
+    description:
+      "AI-assisted e-commerce experience that recommends meals and products based on dietary preferences, macros, and health goals.",
     techStack: ["React", "Node.js", "MongoDB", "JWT Auth"],
     category: "Full Stack",
     liveUrl: "#",
     githubUrl: "#",
-    imageUrl: null
-  },
-  {
-    id: 4,
-    title: "Enterprise E-Commerce API",
-    description: "High-performance backend serving 10,000+ RPM with Redis caching, webhook integrations, and multi-payment gateway support.",
-    techStack: ["Node.js", "MongoDB", "Stripe", "Redis"],
-    category: "Full Stack",
-    liveUrl: "#",
-    githubUrl: "#",
-    imageUrl: null
-  },
-  {
-    id: 5,
-    title: "Developer Portfolio Engine",
-    description: "CMS platform enabling developers to create customized portfolios with automated GitHub integration and responsive templates.",
-    techStack: ["React", "Firebase", "Tailwind CSS", "GitHub API"],
-    category: "Frontend",
-    liveUrl: "#",
-    githubUrl: "#",
-    imageUrl: null
-  },
-  {
-    id: 6,
-    title: "Corporate Task Management",
-    description: "Enterprise workflow solution with role-based permissions, Gantt chart visualization, and cross-team collaboration features.",
-    techStack: ["React", "Redux", "GraphQL", "PostgreSQL"],
-    category: "Full Stack",
-    liveUrl: "#",
-    githubUrl: "#",
-    imageUrl: null
-  },
-  {
-    id: 7,
-    title: "AI Content Generation Suite",
-    description: "GPT-4 integrated platform producing marketing content with brand-aligned tone analysis and multi-language support.",
-    techStack: ["React", "Node.js", "OpenAI API", "MongoDB"],
-    category: "Machine Learning",
-    liveUrl: "#",
-    githubUrl: "#",
-    imageUrl: null
+    imageUrl: "/images/projects/nutrition-ecommerce.png",
+    highlights: [
+      "Built recommendation logic that personalizes catalog views based on dietary profiles and history",
+      "Secured customer accounts with JWT auth and refresh tokens",
+      "Implemented order history, saved plans, and nutrition breakdown per cart",
+      "Designed responsive UI optimized for mobile grocery browsing"
+    ]
   }
 ];
 
-export const categories = ["All", "Full Stack", "Machine Learning", "Frontend"];
+export const categories = ["All", "Full Stack", "Machine Learning"];

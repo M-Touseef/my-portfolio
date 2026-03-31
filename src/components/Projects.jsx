@@ -4,8 +4,6 @@ import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
 import { projects, categories } from "../data/projects";
 
-const PROJECTS_PER_PAGE = 3;
-
 const Projects = () => {
   const { isDark } = useTheme();
   const [activeCategory, setActiveCategory] = useState("All");
@@ -14,16 +12,11 @@ const Projects = () => {
 
   const filteredProjects = useMemo(() => {
     if (activeCategory === "All") return projects;
-    return projects.filter(project => project.category === activeCategory);
+    return projects.filter((project) => project.category === activeCategory);
   }, [activeCategory]);
 
-  const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
-  const showPagination = filteredProjects.length > PROJECTS_PER_PAGE;
-
-  const paginatedProjects = useMemo(() => {
-    const start = (currentPage - 1) * PROJECTS_PER_PAGE;
-    return filteredProjects.slice(start, start + PROJECTS_PER_PAGE);
-  }, [filteredProjects, currentPage]);
+  const featureProject = filteredProjects[0];
+  const secondaryProjects = filteredProjects.slice(1);
 
   const handleCategoryChange = (category) => {
     setIsAnimating(true);
@@ -42,7 +35,7 @@ const Projects = () => {
     <section id="projects" className={`w-full py-24 ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-20 text-center">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -79,68 +72,139 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Projects Grid with Animation */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="wait">
-            {paginatedProjects.map((project, index) => (
-              <ProjectCard 
-                key={project.id}
-                project={project}
-                index={index}
-                isDark={isDark}
-                isAnimating={isAnimating}
-              />
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* Pagination Controls */}
-        {showPagination && (
-          <div className="flex justify-center items-center gap-4 mt-12">
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                currentPage === 1
-                  ? (isDark ? 'bg-gray-700 text-gray-500 cursor-not-allowed' : 'bg-gray-200 text-gray-400 cursor-not-allowed')
-                  : (isDark ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300')
-              }`}
-            >
-              Previous
-            </button>
-            <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-              Page {currentPage} of {totalPages}
-            </span>
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                currentPage === totalPages
-                  ? (isDark ? 'bg-gray-700 text-gray-500 cursor-not-allowed' : 'bg-gray-200 text-gray-400 cursor-not-allowed')
-                  : (isDark ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300')
-              }`}
-            >
-              Next
-            </button>
-          </div>
+        {/* Featured Project */}
+        {featureProject && (
+          <FeatureProjectCard project={featureProject} isDark={isDark} />
         )}
 
-        {/* Empty State */}
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-20">
-            <h3 className={`text-2xl font-medium mb-4 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-              No projects in this category
-            </h3>
-            <button
-              onClick={() => handleCategoryChange("All")}
-              className="px-6 py-3 rounded-lg font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors"
-            >
-              View All Projects
-            </button>
+        {/* Secondary Projects */}
+        {secondaryProjects.length > 0 && (
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <AnimatePresence mode="wait">
+              {secondaryProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={index}
+                  isDark={isDark}
+                  isAnimating={isAnimating}
+                />
+              ))}
+            </AnimatePresence>
           </div>
         )}
       </div>
     </section>
+  );
+};
+
+const FeatureProjectCard = ({ project, isDark }) => {
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.4 }}
+      className={`relative overflow-hidden rounded-2xl border ${
+        isDark ? "border-gray-800 bg-gray-900" : "border-gray-200 bg-white"
+      } shadow-xl`}
+    >
+      <div className="grid lg:grid-cols-2 gap-0">
+        {project.imageUrl && (
+          <div className="relative h-64 sm:h-80 lg:h-full overflow-hidden">
+            <img
+              src={project.imageUrl}
+              alt={project.title}
+              className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent pointer-events-none" />
+          </div>
+        )}
+
+        <div className="p-6 sm:p-8 flex flex-col justify-center">
+          <div className="mb-3">
+            <span
+              className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${
+                isDark ? "bg-blue-900/40 text-blue-300" : "bg-blue-50 text-blue-700"
+              }`}
+            >
+              Featured · {project.category}
+            </span>
+          </div>
+
+          <h3
+            className={`text-2xl sm:text-3xl font-bold mb-3 ${
+              isDark ? "text-white" : "text-gray-900"
+            }`}
+          >
+            {project.title}
+          </h3>
+
+          <p
+            className={`text-sm sm:text-base mb-4 ${
+              isDark ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
+            {project.description}
+          </p>
+
+          {project.highlights?.length > 0 && (
+            <ul
+              className={`mb-5 space-y-2 text-sm ${
+                isDark ? "text-gray-300" : "text-gray-700"
+              }`}
+            >
+              {project.highlights.map((item, idx) => (
+                <li key={idx} className="flex gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div className="flex flex-wrap gap-2 mb-5">
+            {project.techStack.map((tech) => (
+              <span
+                key={tech}
+                className={`px-3 py-1 rounded-full text-xs font-medium ${
+                  isDark ? "bg-gray-800 text-blue-300" : "bg-blue-50 text-blue-800"
+                }`}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium ${
+                isDark
+                  ? "bg-gray-800 hover:bg-gray-700 text-white"
+                  : "bg-gray-100 hover:bg-gray-200 text-gray-900"
+              } transition-colors`}
+            >
+              <FiGithub className="w-5 h-5" />
+              Code
+            </a>
+            {project.liveUrl && project.liveUrl !== "#" && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+              >
+                <FiExternalLink className="w-5 h-5" />
+                Live Demo
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.article>
   );
 };
 
