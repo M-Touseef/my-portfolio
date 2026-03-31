@@ -271,7 +271,7 @@ const Hero = () => {
 
           <motion.div variants={fadeUp} className="flex justify-center gap-4 sm:gap-6">
             <motion.a
-              href="https://github.com/yourusername"
+              href="https://github.com/M-Touseef"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5, scale: 1.1 }}
@@ -282,7 +282,7 @@ const Hero = () => {
               <FaGithub className="text-2xl text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/muhammad-touseef-ab3370371"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5, scale: 1.1 }}

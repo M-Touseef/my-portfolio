@@ -6,10 +6,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 
 const SOCIAL_LINKS = [
-  { icon: <FaEnvelope />, href: "mailto:your.email@example.com", label: "Email" },
-  { icon: <FaLinkedin />, href: "https://linkedin.com/in/yourprofile", label: "LinkedIn" },
-  { icon: <FaGithub />, href: "https://github.com/yourusername", label: "GitHub" },
-  { icon: <FaWhatsapp />, href: "https://wa.me/923001234567", label: "WhatsApp" },
+  { icon: <FaEnvelope />, href: "mailto:muhammadtouseef302@gmail.com", label: "Email" },
+  { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/muhammad-touseef-ab3370371", label: "LinkedIn" },
+  { icon: <FaGithub />, href: "https://github.com/M-Touseef", label: "GitHub" },
+  { icon: <FaWhatsapp />, href: "https://wa.me/923204845562", label: "WhatsApp" },
   { icon: <FaTwitter />, href: "https://twitter.com/yourhandle", label: "Twitter" }
 ];
 
