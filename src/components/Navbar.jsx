@@ -110,7 +110,7 @@ const Navbar = React.memo(() => {
               closeNav();
             }}
             className={`text-xl md:text-2xl font-extrabold ${
-              isDark ? 'text-purple-400' : 'text-indigo-600'
+              isDark ? 'text-blue-400' : 'text-blue-600'
             } cursor-pointer`}
             aria-label="Navigate to home section"
           >
@@ -124,14 +124,14 @@ const Navbar = React.memo(() => {
             onClick={toggleTheme}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+            className="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
             aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
             transition={{ type: 'spring', stiffness: 500 }}
           >
             {isDark ? (
-              <FiSun className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
+              <FiSun className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
             ) : (
-              <FiMoon className="w-5 h-5 md:w-6 md:h-6 text-indigo-600" />
+              <FiMoon className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
             )}
           </motion.button>
 
@@ -152,14 +152,13 @@ const Navbar = React.memo(() => {
                   onSetActive={() => handleSetActive(link.to)}
                   className={`relative ${
                     isDark ? 'text-gray-300' : 'text-gray-700'
-                  } font-medium pb-1 px-1 ${activeLink === link.to ? (isDark ? 'text-purple-400' : 'text-indigo-600') : ''}`}
+                  } font-medium pb-1 px-1 ${activeLink === link.to ? (isDark ? 'text-blue-400' : 'text-blue-600') : ''}`}
                   aria-label={`Navigate to ${link.name} section`}
                 >
                   {link.name}
                   <motion.span
                     layoutId="underline"
-                    className="absolute left-0 bottom-0 h-0.5"
-                    style={{ backgroundColor: isDark ? '#a78bfa' : '#9333EA' }}
+                    className="absolute left-0 bottom-0 h-0.5 bg-blue-600"
                     initial={false}
                     animate={{ width: activeLink === link.to ? '100%' : '0%' }}
                     transition={{ duration: 0.3, type: 'spring' }}
@@ -179,11 +178,9 @@ const Navbar = React.memo(() => {
               whileTap={{ scale: 0.95 }}
               className={`flex items-center gap-2 px-4 py-2 ${
                 isDark 
-                  ? 'bg-purple-600 hover:bg-purple-700 text-white' 
-                  : 'bg-indigo-600 hover:bg-indigo-700 text-white'
-              } rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                isDark ? 'focus:ring-purple-500' : 'focus:ring-indigo-500'
-              }`}
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white' 
+                  : 'bg-blue-600 hover:bg-blue-700 text-white'
+              } rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600`}
               aria-label="Download resume"
               transition={{ type: 'spring', stiffness: 400 }}
             >
@@ -197,7 +194,7 @@ const Navbar = React.memo(() => {
             onClick={toggleNav}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 rounded-full"
+            className="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 rounded-full"
             aria-label="Toggle navigation menu"
             aria-expanded={navOpen}
             transition={{ type: 'spring', stiffness: 500 }}
@@ -257,9 +254,9 @@ const Navbar = React.memo(() => {
                     }}
                     className={`block py-2 text-base font-medium ${
                       activeLink === link.to 
-                        ? (isDark ? 'text-purple-400' : 'text-indigo-600') 
+                        ? (isDark ? 'text-blue-400' : 'text-blue-600') 
                         : (isDark ? 'text-gray-300' : 'text-gray-700')
-                    } focus:outline-none focus:ring-2 focus:ring-purple-500 focus:rounded-md px-2`}
+                    } focus:outline-none focus:ring-2 focus:ring-blue-600 focus:rounded-md px-2`}
                     aria-label={`Navigate to ${link.name} section`}
                   >
                     {link.name}
@@ -276,11 +273,9 @@ const Navbar = React.memo(() => {
                 animate="animate"
                 className={`mt-1 flex items-center justify-center gap-2 text-base font-medium px-4 py-2 rounded-lg ${
                   isDark 
-                    ? 'bg-purple-600 hover:bg-purple-700 text-white' 
-                    : 'bg-indigo-600 hover:bg-indigo-700 text-white'
-                } focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                  isDark ? 'focus:ring-purple-500' : 'focus:ring-indigo-500'
-                }`}
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white' 
+                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600`}
                 onClick={closeNav}
                 aria-label="Download resume"
               >

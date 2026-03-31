@@ -76,7 +76,7 @@ const ContactFooter = ({ copyrightName = "Muhammad Touseef" }) => {
             >
               Let's Collaborate
               <FaPaperPlane className={`inline-block ml-3 ${
-                isDark ? 'text-indigo-400' : 'text-indigo-600'
+                isDark ? 'text-blue-400' : 'text-blue-600'
               } animate-float`} />
             </motion.h2>
             <p className={`text-lg ${
@@ -122,7 +122,7 @@ const ContactFooter = ({ copyrightName = "Muhammad Touseef" }) => {
                 <button
                   onClick={() => setIsSubmitted(false)}
                   className={`underline ${
-                    isDark ? 'text-indigo-400 hover:text-indigo-300' : 'text-indigo-600 hover:text-indigo-700'
+                    isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'
                   }`}
                 >
                   Send another message
@@ -146,10 +146,10 @@ const ContactFooter = ({ copyrightName = "Muhammad Touseef" }) => {
                         value={formData[field]}
                         onChange={(e) => setFormData({...formData, [field]: e.target.value})}
                         required
-                        className={`w-full p-4 rounded-xl peer focus:ring-0 border ${
+                      className={`w-full p-4 rounded-xl peer focus:ring-0 border ${
                           isDark 
-                            ? 'bg-gray-800 border-gray-700 focus:border-indigo-400' 
-                            : 'bg-white border-gray-200 focus:border-indigo-600'
+                            ? 'bg-gray-800 border-gray-700 focus:border-blue-400' 
+                            : 'bg-white border-gray-200 focus:border-blue-600'
                         } transition-all`}
                       />
                       <label className={`absolute left-4 transition-all pointer-events-none ${
@@ -158,8 +158,8 @@ const ContactFooter = ({ copyrightName = "Muhammad Touseef" }) => {
                           : 'top-1/2 -translate-y-1/2 peer-focus:top-1 peer-focus:text-sm'
                       } ${
                         isDark 
-                          ? 'text-gray-400 peer-focus:text-indigo-400' 
-                          : 'text-gray-500 peer-focus:text-indigo-600'
+                          ? 'text-gray-400 peer-focus:text-blue-400' 
+                          : 'text-gray-500 peer-focus:text-blue-600'
                       }`}>
                         {field.charAt(0).toUpperCase() + field.slice(1)}
                       </label>
@@ -176,8 +176,8 @@ const ContactFooter = ({ copyrightName = "Muhammad Touseef" }) => {
                     rows="5"
                     className={`w-full p-4 rounded-xl peer focus:ring-0 border ${
                       isDark 
-                        ? 'bg-gray-800 border-gray-700 focus:border-indigo-400' 
-                        : 'bg-white border-gray-200 focus:border-indigo-600'
+                        ? 'bg-gray-800 border-gray-700 focus:border-blue-400' 
+                        : 'bg-white border-gray-200 focus:border-blue-600'
                     } transition-all`}
                   />
                   <label className={`absolute left-4 top-4 transition-all pointer-events-none ${
@@ -186,8 +186,8 @@ const ContactFooter = ({ copyrightName = "Muhammad Touseef" }) => {
                       : 'peer-focus:text-sm'
                   } ${
                     isDark 
-                      ? 'text-gray-400 peer-focus:text-indigo-400' 
-                      : 'text-gray-500 peer-focus:text-indigo-600'
+                      ? 'text-gray-400 peer-focus:text-blue-400' 
+                      : 'text-gray-500 peer-focus:text-blue-600'
                   }`}>
                     Your Message
                   </label>
@@ -198,11 +198,7 @@ const ContactFooter = ({ copyrightName = "Muhammad Touseef" }) => {
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={isLoading}
-                  className={`w-full py-4 rounded-xl font-semibold flex items-center justify-center gap-2 ${
-                    isDark 
-                      ? 'bg-indigo-600 hover:bg-indigo-700 text-white' 
-                      : 'bg-indigo-600 hover:bg-indigo-700 text-white'
-                  } transition-all ${isLoading ? 'opacity-70 cursor-wait' : ''}`}
+                  className={`w-full py-4 rounded-xl font-semibold flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white transition-all ${isLoading ? 'opacity-70 cursor-wait' : ''}`}
                 >
                   {isLoading ? (
                     <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -253,8 +249,8 @@ const ContactFooter = ({ copyrightName = "Muhammad Touseef" }) => {
                   rel="noopener noreferrer"
                   className={`text-2xl p-3 rounded-full transition-all ${
                     isDark 
-                      ? 'text-gray-400 hover:text-indigo-400 hover:bg-gray-800' 
-                      : 'text-gray-600 hover:text-indigo-600 hover:bg-gray-100'
+                      ? 'text-gray-400 hover:text-blue-400 hover:bg-gray-800' 
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
                   }`}
                   aria-label={link.label}
                   variants={{
@@ -276,8 +272,8 @@ const ContactFooter = ({ copyrightName = "Muhammad Touseef" }) => {
                 © {new Date().getFullYear()} {copyrightName}. All rights reserved.
               </p>
               <p className="text-sm">
-                Crafted with <span className={`${isDark ? 'text-indigo-400' : 'text-indigo-600'}`}>React</span> 
-                & <span className={`${isDark ? 'text-indigo-400' : 'text-indigo-600'}`}>Tailwind CSS</span>
+                Crafted with <span className={`${isDark ? 'text-blue-400' : 'text-blue-600'}`}>React</span> 
+                & <span className={`${isDark ? 'text-blue-400' : 'text-blue-600'}`}>Tailwind CSS</span>
               </p>
             </div>
           </div>
@@ -288,10 +284,10 @@ const ContactFooter = ({ copyrightName = "Muhammad Touseef" }) => {
       <div className="absolute inset-0 pointer-events-none">
         <div className="max-w-7xl mx-auto h-full">
           <div className={`hidden md:block absolute top-1/4 left-20 w-24 h-24 rounded-full blur-3xl opacity-30 ${
-            isDark ? 'bg-indigo-900' : 'bg-indigo-200'
+            isDark ? 'bg-blue-900' : 'bg-blue-200'
           }`} />
           <div className={`hidden md:block absolute bottom-1/4 right-20 w-24 h-24 rounded-full blur-3xl opacity-30 ${
-            isDark ? 'bg-indigo-900' : 'bg-indigo-200'
+            isDark ? 'bg-blue-900' : 'bg-blue-200'
           }`} />
         </div>
       </div>

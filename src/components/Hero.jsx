@@ -201,7 +201,7 @@ const Hero = () => {
               <span className="inline-block bg-blue-100/50 dark:bg-blue-600/20 px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-blue-200 dark:border-blue-500/30">
                 <span className="text-blue-600 dark:text-blue-400 animate-pulse mr-2">❯</span>
                 <span className="typewriter text-gray-800 dark:text-gray-200">
-                  Full Stack Engineer & ML Developer — I specialize in React, Node.js, and PyTorch. Currently focused on AI-powered applications and explainable machine learning.
+                  Full Stack & ML Engineer — I specialize in React, Node.js, and PyTorch. Currently focused on AI-powered applications and explainable machine learning.
                 </span>
               </span>
             </h2>

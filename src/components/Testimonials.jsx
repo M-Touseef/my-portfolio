@@ -54,7 +54,7 @@ const Testimonials = () => {
               }`}
             >
               <div className={`mb-4 ${
-                isDark ? 'text-indigo-400' : 'text-indigo-600'
+                isDark ? 'text-blue-400' : 'text-blue-600'
               }`}>
                 {item.icon}
               </div>

@@ -69,7 +69,7 @@ const Projects = () => {
                 onClick={() => handleCategoryChange(category)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   activeCategory === category
-                    ? (isDark ? 'bg-indigo-600 text-white' : 'bg-indigo-600 text-white')
+                    ? 'bg-blue-600 text-white'
                     : (isDark ? 'border border-gray-600 text-gray-300 hover:bg-gray-800' : 'border border-gray-300 text-gray-600 hover:bg-gray-100')
                 }`}
               >
@@ -133,9 +133,7 @@ const Projects = () => {
             </h3>
             <button
               onClick={() => handleCategoryChange("All")}
-              className={`px-6 py-3 rounded-lg font-medium ${
-                isDark ? 'bg-indigo-600 hover:bg-indigo-700' : 'bg-indigo-600 hover:bg-indigo-700'
-              } text-white transition-colors`}
+              className="px-6 py-3 rounded-lg font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors"
             >
               View All Projects
             </button>
@@ -172,7 +170,7 @@ const ProjectCard = ({ project, index, isDark, isAnimating }) => {
       <div className="p-6 flex-1 flex flex-col">
         <div className="flex justify-between items-start mb-3">
           <span className={`text-sm font-medium ${
-            isDark ? 'text-indigo-400' : 'text-indigo-600'
+            isDark ? 'text-blue-400' : 'text-blue-600'
           }`}>
             {project.category}
           </span>
@@ -184,19 +182,19 @@ const ProjectCard = ({ project, index, isDark, isAnimating }) => {
           {project.title}
         </h3>
 
-        <p className={`text-sm mb-4 ${
+              <p className={`text-sm mb-4 ${
           isDark ? 'text-gray-400' : 'text-gray-600'
         }`}>
           {project.description}
         </p>
 
-        <div className="mt-auto">
-          <div className="flex flex-wrap gap-2 mb-6">
+              <div className="mt-auto">
+                <div className="flex flex-wrap gap-2 mb-6">
             {project.techStack.map(tech => (
               <span
                 key={tech}
                 className={`px-3 py-1 rounded-full text-xs font-medium ${
-                  isDark ? 'bg-gray-700 text-indigo-400' : 'bg-indigo-100 text-indigo-800'
+                  isDark ? 'bg-gray-700 text-blue-400' : 'bg-blue-100 text-blue-800'
                 }`}
               >
                 {tech}
@@ -220,9 +218,7 @@ const ProjectCard = ({ project, index, isDark, isAnimating }) => {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg ${
-                isDark ? 'bg-indigo-600 hover:bg-indigo-700' : 'bg-indigo-600 hover:bg-indigo-700'
-              } text-white transition-colors`}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors`}
             >
               <FiExternalLink className="w-5 h-5" />
               <span className="text-sm font-medium">Live Demo</span>

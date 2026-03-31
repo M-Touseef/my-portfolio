@@ -43,13 +43,13 @@ const About = () => {
                 alt="Muhammad Touseef"
                 className="w-full h-auto rounded-2xl shadow-xl transform transition-transform duration-300 border-4 border-white dark:border-gray-800"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-indigo-600/10 to-transparent rounded-2xl mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-b from-blue-600/10 to-transparent rounded-2xl mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
 
             <div className="space-y-4 text-center md:text-left">
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">Muhammad Touseef</h3>
-              <p className="text-indigo-600 dark:text-indigo-400 font-medium text-sm md:text-base">
-                Backend Engineer & Security Specialist
+              <p className="text-blue-600 dark:text-blue-400 font-medium text-sm md:text-base">
+                Full Stack & ML Engineer
               </p>
               <motion.div 
                 className="flex justify-center md:justify-start gap-4"
@@ -110,7 +110,7 @@ const About = () => {
                       whileHover={{ y: -5 }}
                     >
                       <motion.div
-                        className="text-indigo-600 dark:text-indigo-400 text-2xl md:text-3xl mb-3 md:mb-4 inline-block p-2 md:p-3 rounded-full bg-indigo-50 dark:bg-gray-900"
+                        className="text-blue-600 dark:text-blue-400 text-2xl md:text-3xl mb-3 md:mb-4 inline-block p-2 md:p-3 rounded-full bg-blue-50 dark:bg-gray-900"
                         animate={{ rotate: [0, 10, -10, 0] }}
                         transition={{ duration: 2, repeat: Infinity }}
                       >
@@ -124,7 +124,7 @@ const About = () => {
                             whileHover={{ x: 5 }}
                             className="flex items-center gap-2 md:gap-3"
                           >
-                            <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                            <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
                             {item}
                           </motion.li>
                         ))}
@@ -164,7 +164,7 @@ const About = () => {
                     transition={{ delay: item.delay, duration: 0.6 }}
                   >
                     <motion.div
-                      className="absolute left-0 top-1 -translate-x-1/2 w-4 h-4 md:w-5 md:h-5 bg-indigo-600 rounded-full flex items-center justify-center shadow-lg z-10"
+                      className="absolute left-0 top-1 -translate-x-1/2 w-4 h-4 md:w-5 md:h-5 bg-blue-600 rounded-full flex items-center justify-center shadow-lg z-10"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: "spring", stiffness: 260, damping: 20 }}
